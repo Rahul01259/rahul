@@ -124,13 +124,19 @@
       <div class="further-info">
         <!-- insert images with srcsets and sizes -->
         <a href="https://www.mozilla.org/en-US/firefox/new/">
-          <img src="logo_big.png" alt="big logo">
+          <img srcset="logo_small.png 120w , logo_big.png 400w"
+          sizes="(max-width:500px) 120px, 400px"
+          src="logo_big.png" alt="big logo">
         </a>
         <a href="https://www.mozilla.org/">
-          <img src="dinasoure_big.png" alt="dinasoure big">
+          <img srcset="dinasoure_small.png 120w , dinasoure_big.png 400w"
+          sizes="(max-width:500px) 120px, 400px" 
+          src="dinasoure_big.png" alt="dinasoure big">
         </a>
         <a href="https://addons.mozilla.org/">
-          <img src="adon_big.jpg" alt="big addons">
+          <img  srcset="adon_small.jpg 120w , adon_big.jpg 400w"
+          sizes="(max-width:500px) 120px, 400px"  
+          src="adon_big.jpg" alt="big addons">
         </a>
         <a href="https://developer.mozilla.org/en-US/">
           <img src="mdn(1).svg" alt="mdnlogo">
