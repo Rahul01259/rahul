@@ -42,26 +42,50 @@
 
   <body>
     <div>
-      // main.js
+      <!-- main.js -->
       <script>
         document.addEventListener('DOMContentLoaded', function () {
+          // Function to convert US units to UK units
+          function convertToUKUnits(usStory) {
+            // Convert US units to UK units
+            var ukStory = usStory
+              .replace('150 pounds', '10 stone')
+              .replace('80 degrees Fahrenheit', '27 degrees Celsius');
+
+            return ukStory;
+          }
+
           // Function to generate a random story
           function generateStory() {
             // Get the selected radio button value (us or uk)
             var nationality = document.querySelector('input[name="ukus"]:checked').value;
 
+            // Get the custom name from the input field
+            var customName = document.getElementById('customName').value;
+
             // Define the text strings for the story
             var stories = {
-              us: 'This is a silly story for US.',
-              uk: 'This is a silly story for UK.'
+              us: '{name} weighed 150 pounds and it was 80 degrees Fahrenheit.',
+              uk: '{name} weighed 10 stone and it was 27 degrees Celsius.'
               // Add more story variations as needed
             };
 
             // Get the paragraph element
             var storyParagraph = document.querySelector('.story');
 
+            // Replace the default name "Bob" with the custom name if provided
+            var story = stories[nationality];
+            if (customName) {
+              story = story.replace('{name}', customName);
+            }
+
+            // Convert units to UK units if the UK radio button is checked
+            if (nationality === 'uk') {
+              story = convertToUKUnits(story);
+            }
+
             // Set the content of the paragraph based on the selected nationality
-            storyParagraph.textContent = stories[nationality];
+            storyParagraph.textContent = 'This is a silly story for ' + nationality.toUpperCase() + '. ' + story;
 
             // Make the paragraph visible
             storyParagraph.style.visibility = 'visible';
@@ -74,22 +98,21 @@
           generateButton.addEventListener('click', generateStory);
         });
       </script>
-
     </div>
     <div>
       <label for="us">US</label
-        ><input id="us" type="radio" name="ukus" value="us" checked />
-        <label for="uk">UK</label
-        ><input id="uk" type="radio" name="ukus" value="uk" />
-      </div>
-      <div>
-        <label for="customName">Enter custom name:</label>
-        <input id="customName" type="text" />
-      </div>
-      <div>
-        <button class="randomize">Generate random story</button>
-      </div>
-      <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
-      <p class="story"></p>
+      ><input id="us" type="radio" name="ukus" value="us" checked />
+      <label for="uk">UK</label
+      ><input id="uk" type="radio" name="ukus" value="uk" />
+    </div>
+    <div>
+      <label for="customName">Enter custom name:</label>
+      <input id="customName" type="text" />
+    </div>
+    <div>
+      <button class="randomize">Generate random story</button>
+    </div>
+    <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
+    <p class="story"></p>
   </body>
 </html>
