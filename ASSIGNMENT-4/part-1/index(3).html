@@ -1,0 +1,91 @@
+<!--
+	Name: Rahul
+	File: index(2).html
+	Date: 22-11-2023
+	In this assignment we have to set the box in the html.
+	-->
+  <!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Silly story generator</title>
+
+    <style>
+      body {
+        font-family: helvetica, sans-serif;
+        width: 350px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      div {
+        padding-bottom: 20px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        width: 150px;
+      }
+
+      p {
+        background: #ffc125;
+        color: #5e2612;
+        padding: 10px;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      // main.js
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Function to generate a random story
+          function generateStory() {
+            // Get the selected radio button value (us or uk)
+            var nationality = document.querySelector('input[name="ukus"]:checked').value;
+
+            // Define the text strings for the story
+            var stories = {
+              us: 'This is a silly story for US.',
+              uk: 'This is a silly story for UK.'
+              // Add more story variations as needed
+            };
+
+            // Get the paragraph element
+            var storyParagraph = document.querySelector('.story');
+
+            // Set the content of the paragraph based on the selected nationality
+            storyParagraph.textContent = stories[nationality];
+
+            // Make the paragraph visible
+            storyParagraph.style.visibility = 'visible';
+          }
+
+          // Get the button element
+          var generateButton = document.querySelector('.randomize');
+
+          // Add a click event listener to the button
+          generateButton.addEventListener('click', generateStory);
+        });
+      </script>
+
+    </div>
+    <div>
+      <label for="us">US</label
+      ><input id="us" type="radio" name="ukus" value="us" checked />
+      <label for="uk">UK</label
+      ><input id="uk" type="radio" name="ukus" value="uk" />
+    </div>
+    <div>
+      <button class="randomize">Generate random story</button>
+    </div>
+    <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
+    <p class="story"></p>
+  </body>
+</html>
