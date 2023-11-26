@@ -18,6 +18,18 @@ const alternativetext = {
 
 /* Looping through images */
 
+for (const image of imageslist) {
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', `images/${image}`);
+    newImage.setAttribute('alt', alternativetext[image]);
+    thumbBar.appendChild(newImage);
+    newImage.addEventListener('click', e => {
+      displayedImage.src = e.target.src;
+      displayedImage.alt = e.target.alt;
+    });
+  }
+  
+
 const newImage = document.createElement('img');
 newImage.setAttribute('src', xxx);
 newImage.setAttribute('alt', xxx);
