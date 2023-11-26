@@ -28,11 +28,12 @@ for (const image of imageslist) {
       displayedImage.alt = e.target.alt;
     });
   }
-  
 
-const newImage = document.createElement('img');
-newImage.setAttribute('src', xxx);
-newImage.setAttribute('alt', xxx);
-thumbBar.appendChild(newImage);
+
 
 /* Wiring up the Darken/Lighten button */
+btn.addEventListener('click', () => {
+    const isDark = btn.classList.toggle('dark');
+    btn.textContent = isDark ? 'Lighten' : 'Darken';
+    overlay.style.backgroundColor = isDark ? 'rgba(0,0,0,0.7)' : 'rgba(0,0,0,0)';
+});
