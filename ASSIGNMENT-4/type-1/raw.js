@@ -7,7 +7,7 @@ function randomValueFromArray(array){
 }
 
 
-var textarray = "It was 94 farenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but he was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
+var textarray = "It was 94 farenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but he was not surprised :insertx: weighs 300 pounds, and it was a hot day.";
 
 var insertx= ["Willy the Goblin","Big Daddy","Father Christmas"];
 
@@ -29,6 +29,7 @@ z = randomValueFromArray(insertz);
 result= result.replace(":insertx:",x);
 result = result.replace(":inserty:",y);
 result = result.replace(":insertz:",z);
+result=result.replace(":insertx:",x);
 
   
   if(customName.value != '') {
