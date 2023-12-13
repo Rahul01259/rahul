@@ -9,8 +9,10 @@ showHideBtn.onclick = function() {
   let showHideText = showHideBtn.textContent;
   if(showHideText === 'Show comments') {
     showHideBtn.textContent = 'Hide comments';
+
     commentWrapper.style.display = 'block';
   } else {
+
     showHideBtn.textContent = 'Show comments';
     commentWrapper.style.display = 'none';
   }
@@ -19,6 +21,7 @@ showHideBtn.onclick = function() {
 /* added */
 showHideBtn.onkeydown = (e) => {
   if (e.key === "Enter") {
+
     showHideBtn.click();
   }
 }
@@ -28,6 +31,7 @@ showHideBtn.onkeydown = (e) => {
 const form = document.querySelector('.comment-form');
 const nameField = document.querySelector('#name');
 const commentField = document.querySelector('#comment');
+
 const list = document.querySelector('.comment-container');
 
 form.onsubmit = function(e) {
